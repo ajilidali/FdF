@@ -16,15 +16,20 @@ int main(int argc, char **argv)
 	printf("%s\n", fdf->line[5]);
 	printf("%s\n", fdf->line[6]);
 	
-/*
-	fdf->z = malloc(sizeof(int*) * 7);
-	fdf->z = ft_atoi(*ft_split(fdf->line[0], ' '));
-	int i = 0;
-	while (i!=4)
-	{
-		printf("%d\n", fdf->z[i]);
-		i++;
-	}
+	ft_set_z(argv[1],fdf);
+
+
+	/*char **split_result = ft_split(fdf->line[2], ' ');
+
+    fdf->z = malloc(sizeof(int) * 7); 
+
+    int i = 0;
+    while (i != 4 && split_result[i] != NULL)
+    {
+        fdf->z[i] = ft_atoi(split_result[i]);
+        printf("%d\n", fdf->z[i]);
+        i++;
+    }
 	*/
 
 }

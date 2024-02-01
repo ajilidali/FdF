@@ -16,6 +16,20 @@ int ft_countln(char *argv)
     return (i);
 }
 
+int ft_countz(t_fdf *fdf)
+{
+    char **split_result;
+    int i;
+    i = 0;
+
+    split_result = ft_split(fdf->line[0],' ');
+    while(split_result[i])    
+        i++;
+    printf("\n count z : %d \n",i);
+    free(split_result);
+    return (i);
+}
+
 int ft_parse_lines(char *argv, t_fdf *fdf)
 {
     int fd;
@@ -40,4 +54,12 @@ int ft_parse_lines(char *argv, t_fdf *fdf)
     return (0);
 }
 
-
+int ft_set_z(char *argv,t_fdf *fdf)
+{
+    int size_z;
+    size_z = ft_countz(fdf);
+   // printf("ft_countln : %d \n", ft_countln(argv));
+    fdf->z = (int *)(malloc(ft_countln(argv)*size_z*sizeof(int)));
+    fdf->z[0] = 1;
+    printf("%d \n", fdf->z[0]);
+}
