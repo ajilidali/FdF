@@ -7,7 +7,7 @@
 
 typedef struct s_fdf
 {   
-    char *line;
+    char **line;
     int     *map;
     int     *x;
     int     *y;
@@ -16,6 +16,6 @@ typedef struct s_fdf
 }				t_fdf;
 
 
-int ft_parse(char *argv, t_fdf fdf);
-
+int ft_parse(char *argv, t_fdf *fdf);
+void free_fdf(t_fdf *fdf);
 #endif

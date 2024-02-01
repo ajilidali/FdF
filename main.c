@@ -6,17 +6,18 @@ int main(int argc, char **argv)
 	int i;
 	i = 0;
 	fdf = malloc(sizeof(fdf));
-	//printf("%s\n",argv[1]);
 	if (argc !=2)
 	{
 		printf("argc");
 		return (0);
 	}
-	//printf("%s",argv[1]);
-	ft_parse(argv[1],*fdf);
-	/*while (fdf.line[i])
-	{
-		printf("%c\n",fdf.line[i]);
-		i++;
-	}*/
+	ft_parse(argv[1],fdf);
+
+	printf("%s",fdf->line[0]);
+	printf("%s",fdf->line[1]);
+	printf("%s",fdf->line[2]);
+	printf("%s",fdf->line[3]);
+	printf("%s",fdf->line[4]);
+	printf("%s",fdf->line[5]);
+
 }

@@ -1,48 +1,59 @@
 #include "fdf.h"
 
-/*void *ft_parse(char *argv[1], t_fdf fdf)
-{
-	int	fd;
-	int	i;
+/*void free_fdf(t_fdf *fdf) {
+    if (fdf == NULL) {
+        return;
+    }
 
-	i = 0;
-	if (fd = open(argv[1], O_RDONLY) == -1)
-		return (-1);
-	while (fdf.line[i] = get_next_line(fd))
-	{
-		ft_split(fdf.line[i], ' ');
-		i++;
-	}
-}
-*/
-
-int	ft_parse(char *argv, t_fdf fdf)
-{
-	int	fd;
-	int	i;
-    char **line;
-    fd = 0;
-	i = 1;
-    printf("%s\n",argv);
-	fd = open(argv, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		return (-1);
-	}
-	fdf.line[0] = *get_next_line(fd);
-	while (fdf.line[i] != NULL)
-	{
-        line[i] = get_next_line(fd);
-		fdf.line[i] = *(char *)(malloc(ft_strlen(line[i]) * sizeof(char) - 1));
-        fdf.line[i] = *line[i];
-		i++;
-	}
-	close(fd);
-	return (0);
+    free(fdf->map);
+    free(fdf->x);
+    free(fdf->y);
+    free(fdf->z);
+    free(fdf);
 }
 
-int ft_get_len()
+t_fdf *initialize_fdf() 
 {
+    t_fdf *fdf = (t_fdf *)malloc(sizeof(t_fdf));
     
+    if (fdf == NULL) 
+        return NULL;
+    fdf->line = NULL;
+    fdf->map = (int *)malloc(sizeof(int));
+    fdf->x = (int *)malloc(sizeof(int));
+    fdf->y = (int *)malloc(sizeof(int));
+    fdf->z = (int *)malloc(sizeof(int));
+    fdf->col = NULL;  
+    if (fdf->map == NULL || fdf->x == NULL || fdf->y == NULL || fdf->z == NULL) {
+        free_fdf(fdf);  
+        return NULL;
+    }
+    return fdf;
+}*/
+
+
+int ft_parse(char *argv, t_fdf *fdf)
+{
+    int fd;
+    int i;
+    char *line;
+   // *fdf = initialize_fdf();
+    fd = 0;
+    i = 0;
+    printf("%s\n", argv);
+    fd = open(argv, O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        exit (-1);
+    }
+    fdf->line = malloc(1);
+    while ((line = get_next_line(fd)) != NULL)
+    {
+		fdf->line[i] = (char *)(malloc(ft_strlen(line) * sizeof(char) ));
+        fdf->line[i] = line;
+        i++;
+    }
+    close(fd);
+    return (0);
 }
