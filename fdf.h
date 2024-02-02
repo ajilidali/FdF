@@ -16,5 +16,6 @@ typedef struct s_fdf
 
 
 int ft_parse_lines(char *argv, t_fdf *fdf);
+void ft_freesplit(char **split_result);
 int ft_set_z(char *argv,t_fdf *fdf);
 #endif
