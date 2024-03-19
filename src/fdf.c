@@ -6,7 +6,7 @@
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:48:21 by moajili           #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:59 by moajili          ###   ########.fr       */
+/*   Updated: 2024/03/19 20:12:29 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 		return (perror("Fail alloc map_data :/"), 0);
 	if (!ft_init(data, argv[1]))
 		return (free(data), 0);
-	data->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
+	data->mlx = mlx_init(WIDTH, HEIGHT, "The best FDF", true);
 	if (!data->mlx)
 		return (perror("Error with mlx!"), ft_stop_process(data, 0), 0);
 	data->image = mlx_new_image(data->mlx, WIDTH, HEIGHT);

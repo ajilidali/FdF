@@ -6,7 +6,7 @@
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:12:22 by moajili           #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:59 by moajili          ###   ########.fr       */
+/*   Updated: 2024/03/19 20:27:20 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ int32_t	planey(int x, int y, t_fdf *data)
 	float	zoom;
 	int		z;
 
-	z = data->pos[y][x];
+	z = data->pos[y][x] + data->pos[data->ymax / 2][data->xmax / 2];
 	zoom = data->angle->zoom;
-	angle = data->angle->angle_y * (M_PI / 180);
-	return (((y + (x + z) * sin(angle)) * zoom) + data->centre_y);
+	angle = data->angle->angle_y * 0.017;
+	return (((y * cos(angle) + (x + z) * sin(angle)) * zoom) + data->centre_y);
 }
 
 //Conversion coordonee x vers isometrique
@@ -83,8 +83,8 @@ int32_t	planex(int x, int y, t_fdf *data)
 	float	zoom;
 	int		z;
 
-	z = data->pos[y][x];
+	z = data->pos[y][x] + data->pos[data->ymax / 2][data->xmax / 2];
 	zoom = data->angle->zoom;
-	angle = data->angle->angle_x * (M_PI / 180);
-	return (((x + (x - z) * cos(angle)) * zoom) + data->centre_x);
+	angle = data->angle->angle_x * 0.017;
+	return (((x * sin(angle) + (x - z) * cos(angle)) * zoom) + data->centre_x);
 }
