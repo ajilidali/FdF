@@ -6,7 +6,7 @@
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:46:10 by moajili           #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:59 by moajili          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:46:09 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		ft_count_line_and_point(int fd, t_fdf *map_data);
 int		ft_alloc_finals_maps(t_fdf *map_data);
 int		ft_check_file_name(char *str);
 void	free_split(char ***split_map_content, t_fdf *map_data);
-void	freetab(char **str);
+void	freetab(char **str, t_fdf *data);
 void	ft_free_finals_maps(t_fdf *map_data);
 void	ft_clearimage(mlx_image_t *image);
 void	draw_map(t_fdf *map_data);
