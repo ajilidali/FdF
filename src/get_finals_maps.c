@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 13:56:37 by moajili           #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:59 by moajili          ###   ########.fr       */
+/*   Created: 2024/02/05 13:56:37 by hclaude           #+#    #+#             */
+/*   Updated: 2024/03/22 13:04:11 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int	ft_get_finals_maps(char ***split_map, t_fdf *data)
 				data->color[y_pos][x_pos] = get_the_color(tmp[1]);
 			else
 				data->color[y_pos][x_pos] = -1;
-			freetab(tmp);
+			freetab(tmp, data);
 			x_pos++;
 		}
 		y_pos++;

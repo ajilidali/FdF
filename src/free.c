@@ -6,7 +6,7 @@
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:51:22 by moajili           #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:59 by moajili          ###   ########.fr       */
+/*   Updated: 2024/03/22 12:47:52 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	free_split(char ***split_map, t_fdf *map_data)
  *
  * @param str The 2D array of strings to be freed.
  */
-void	freetab(char **str)
+void	freetab(char **str, t_fdf *data)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && i < data->ymax)
 		free(str[i++]);
 	free(str);
 	str = NULL;
